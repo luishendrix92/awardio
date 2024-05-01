@@ -11,5 +11,7 @@ public interface ShowService {
 
   Show createShow(Show show);
 
+  Show updateShow(Integer id, Show show);
+
   void deleteShowById(Integer id);
 }

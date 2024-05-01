@@ -39,6 +39,18 @@ public class ShowServiceImpl implements ShowService {
   }
 
   @Override
+  public Show updateShow(Integer id, Show show) {
+    var toUpdate = showRepository.findById(id).orElseThrow(EntityNotFoundException::new);
+
+    toUpdate.setTitle(show.getTitle());
+    toUpdate.setDescription(show.getDescription());
+    toUpdate.setImage(show.getImage());
+    toUpdate.setAirDate(show.getAirDate());
+
+    return showRepository.save(toUpdate);
+  }
+
+  @Override
   public void deleteShowById(Integer id) {
     showRepository.deleteById(id);
   }
