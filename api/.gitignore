@@ -32,4 +32,4 @@ build/
 .vscode/
 
 ### Custom ###
-ddl.sql
+dsl.sql
