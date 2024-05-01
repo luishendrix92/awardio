@@ -8,4 +8,6 @@ public interface AwardService {
   Award setWinner(Integer awardId, Integer winnerEntryId);
 
   String updateAwardTitle(Integer id, String title);
+
+  void deleteAward(Integer id);
 }

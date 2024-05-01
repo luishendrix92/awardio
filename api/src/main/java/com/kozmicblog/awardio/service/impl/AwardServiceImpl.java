@@ -44,4 +44,9 @@ public class AwardServiceImpl implements AwardService {
 
     return awardRepository.save(award).getTitle();
   }
+
+  @Override
+  public void deleteAward(Integer id) {
+    awardRepository.deleteById(id);
+  }
 }

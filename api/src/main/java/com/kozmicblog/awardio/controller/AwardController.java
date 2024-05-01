@@ -33,4 +33,9 @@ public class AwardController {
 
     return new SetWinnerResponse(updatedAward.getId(), updatedAward.getWinnerEntryId());
   }
+
+  @DeleteMapping("/{id}")
+  public void delete(@PathVariable("id") Integer id) {
+    awardService.deleteAward(id);
+  }
 }
