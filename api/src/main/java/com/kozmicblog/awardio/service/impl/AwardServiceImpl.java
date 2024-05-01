@@ -26,4 +26,13 @@ public class AwardServiceImpl implements AwardService {
 
     return awardRepository.save(award);
   }
+
+  @Override
+  public Award setWinner(Integer awardId, Integer winnerEntryId) {
+    var award = awardRepository.findById(awardId).orElseThrow(EntityNotFoundException::new);
+
+    award.setWinnerEntryId(winnerEntryId);
+
+    return awardRepository.save(award);
+  }
 }
