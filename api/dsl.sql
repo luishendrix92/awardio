@@ -23,7 +23,11 @@ CREATE TABLE public.awards
     fk_shows  int                             NOT NULL,
     fk_winner int                             NULL,
     CONSTRAINT awards_pk PRIMARY KEY (id),
-    CONSTRAINT awards_shows_id_fk FOREIGN KEY (fk_shows) REFERENCES public.shows (id) ON DELETE CASCADE
+    CONSTRAINT awards_shows_id_fk FOREIGN KEY (fk_shows)
+        REFERENCES public.shows (id)
+        ON DELETE CASCADE
+        -- Allows me to change the show id
+        ON UPDATE CASCADE
 );
 
 CREATE TABLE public.entries
