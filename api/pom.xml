@@ -11,8 +11,8 @@
     <groupId>com.kozmicblog</groupId>
     <artifactId>awardio</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>api</name>
-    <description>api</description>
+    <name>awardio</name>
+    <description>Backend REST API for Awardio</description>
     <properties>
         <java.version>21</java.version>
     </properties>
