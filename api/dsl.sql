@@ -19,7 +19,7 @@ CREATE TABLE public.shows
 CREATE TABLE public.awards
 (
     id        serial                          NOT NULL,
-    title     varchar(255) DEFAULT 'Untitled' NOT NULL,
+    title     varchar(255) DEFAULT 'Untitled' NULL,
     fk_shows  int                             NOT NULL,
     fk_winner int                             NULL,
     CONSTRAINT awards_pk PRIMARY KEY (id),
