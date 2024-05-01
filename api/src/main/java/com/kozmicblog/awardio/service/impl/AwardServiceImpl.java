@@ -35,4 +35,13 @@ public class AwardServiceImpl implements AwardService {
 
     return awardRepository.save(award);
   }
+
+  @Override
+  public String updateAwardTitle(Integer id, String title) {
+    var award = awardRepository.findById(id).orElseThrow(EntityNotFoundException::new);
+
+    award.setTitle(title);
+
+    return awardRepository.save(award).getTitle();
+  }
 }

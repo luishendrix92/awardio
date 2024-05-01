@@ -22,6 +22,11 @@ public class AwardController {
     return awardService.createAward(award.showId(), award.title());
   }
 
+  @PutMapping("/{id}")
+  public String updateTitle(@PathVariable("id") Integer id, @RequestBody Award award) {
+    return awardService.updateAwardTitle(id, award.getTitle());
+  }
+
   @PatchMapping("/{id}/winner")
   public SetWinnerResponse setWinnerEntry(@PathVariable("id") Integer awardId, @RequestBody Award award) {
     var updatedAward = awardService.setWinner(awardId, award.getWinnerEntryId());
