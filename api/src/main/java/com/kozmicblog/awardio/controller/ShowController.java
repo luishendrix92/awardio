@@ -17,18 +17,17 @@ public class ShowController {
 
   @GetMapping
   public List<Show> shows() {
-    var showIter = showService.getAllShows();
-
-    showIter.forEach(show -> show.setAwards(null));
-
-    return StreamSupport
-      .stream(showIter.spliterator(), false)
-      .collect(Collectors.toList());
+    return showService.getAllShows();
   }
 
   @GetMapping("/{id}")
   public Show show(@PathVariable("id") Integer id) {
     return showService.getShowById(id);
+  }
+
+  @PostMapping
+  public Show create(@RequestBody Show show) {
+    return showService.createShow(show);
   }
 
   @DeleteMapping("/{id}")

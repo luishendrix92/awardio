@@ -1,6 +1,5 @@
 package com.kozmicblog.awardio.model;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
@@ -17,6 +16,9 @@ public class Show {
 
   @Column(nullable = false)
   private String title;
+
+  @Column
+  private String image = "https://www.tibs.org.tw/images/default.jpg";
 
   @Column(columnDefinition = "text")
   private String description;
@@ -36,7 +38,7 @@ public class Show {
     }
   )
   @JsonManagedReference
-  @OrderBy("id ASC")
+  @OrderBy("id DESC")
   private List<Award> awards = new ArrayList<>();
 
   public String getTitle() {
@@ -77,5 +79,13 @@ public class Show {
 
   public Integer getId() {
     return id;
+  }
+
+  public String getImage() {
+    return image;
+  }
+
+  public void setImage(String image) {
+    this.image = image;
   }
 }
