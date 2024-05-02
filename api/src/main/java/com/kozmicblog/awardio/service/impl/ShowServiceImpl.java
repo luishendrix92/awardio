@@ -3,6 +3,7 @@ package com.kozmicblog.awardio.service.impl;
 import com.kozmicblog.awardio.model.Show;
 import com.kozmicblog.awardio.repository.ShowRepository;
 import com.kozmicblog.awardio.service.ShowService;
+import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -15,6 +16,9 @@ import java.util.List;
 public class ShowServiceImpl implements ShowService {
   @Autowired
   private ShowRepository showRepository;
+
+  @Autowired
+  private EntityManager entityManager;
 
   @Override
   public List<Show> getAllShows() {
@@ -29,8 +33,17 @@ public class ShowServiceImpl implements ShowService {
 
   @Override
   public Show getShowById(Integer id) {
-    return showRepository.findById(id)
-      .orElseThrow(EntityNotFoundException::new);
+    return (Show) entityManager
+      .createQuery(
+        "select distinct s " +
+          "from Show s " +
+          "join fetch s.awards a " +
+          "join fetch a.entries e " +
+          "join fetch e.votes v " +
+          "join fetch v.voter " +
+          "where s.id = :showId")
+      .setParameter("showId", id)
+      .getSingleResult();
   }
 
   @Override

@@ -4,8 +4,8 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "awards")
@@ -28,7 +28,7 @@ public class Award {
     fetch = FetchType.LAZY
   )
   @JsonManagedReference
-  private List<Entry> entries = new ArrayList<>();
+  private Set<Entry> entries = new HashSet<>();
 
   @Column(name = "fk_winner")
   private Integer winnerEntryId;
@@ -57,11 +57,11 @@ public class Award {
     this.show = show;
   }
 
-  public List<Entry> getEntries() {
+  public Set<Entry> getEntries() {
     return entries;
   }
 
-  public void setEntries(List<Entry> entries) {
+  public void setEntries(Set<Entry> entries) {
     this.entries = entries;
   }
 

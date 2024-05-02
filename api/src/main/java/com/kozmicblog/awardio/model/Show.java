@@ -3,9 +3,7 @@ package com.kozmicblog.awardio.model;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Entity
 @Table(name = "shows")
@@ -39,7 +37,7 @@ public class Show {
   )
   @JsonManagedReference
   @OrderBy("id DESC")
-  private List<Award> awards = new ArrayList<>();
+  private Set<Award> awards = new HashSet<>();
 
   public String getTitle() {
     return title;
@@ -65,11 +63,11 @@ public class Show {
     this.airDate = airDate;
   }
 
-  public List<Award> getAwards() {
+  public Set<Award> getAwards() {
     return awards;
   }
 
-  public void setAwards(List<Award> awards) {
+  public void setAwards(Set<Award> awards) {
     this.awards = awards;
   }
 
