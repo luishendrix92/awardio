@@ -11,9 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.1.4
-        with:
-          sparse-checkout: 'api'
-          sparse-checkout-cone-mode: false
+      - name: Copy Spring Boot files in CWD
+        run: cp -r api/* .
       - name: Setup Java 21 Temurin JDK
         uses: actions/setup-java@v4.2.1
         with:
