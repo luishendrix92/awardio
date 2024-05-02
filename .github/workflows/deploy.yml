@@ -1,0 +1,25 @@
+name: Spring Boot Render Deploy
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Java 21 Temurin JDK
+        uses: actions/setup-java@v4.2.1
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+      - name: Build project JAR with Maven
+        run: ./mvnw clean install
+      - name: Deploy to production
+        uses: johnbeynon/render-deploy-action@v0.0.8
+        with:
+          service-id: ${{ secrets.MY_RENDER_SERVICE_ID }}
+          api-key: ${{ secrets.MY_RENDER_API_KEY }}
+          wait-for-success: true
