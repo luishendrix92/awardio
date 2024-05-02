@@ -10,6 +10,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4.1.4
+        with:
+          sparse-checkout: 'api'
+          sparse-checkout-cone-mode: false
       - name: Setup Java 21 Temurin JDK
         uses: actions/setup-java@v4.2.1
         with:
