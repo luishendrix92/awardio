@@ -44,9 +44,6 @@ CREATE TABLE public.entries
 ALTER TABLE public.awards
     ADD CONSTRAINT winner___fk FOREIGN KEY (fk_winner) REFERENCES public.entries (id) ON DELETE SET NULL;
 
--- CREATE INDEX awards_show_id_index ON public.awards USING btree (fk_shows);
--- CREATE INDEX entries_award_id_index ON public.entries USING btree (fk_awards);
-
 CREATE TABLE public.votes
 (
     id         serial NOT NULL,
