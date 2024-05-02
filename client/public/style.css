@@ -1,0 +1,59 @@
+.card .image img {
+  height: 200px !important;
+}
+
+.footer {
+  padding: 70px !important;
+}
+
+.fit-cover {
+  object-fit: cover;
+}
+
+.ui.ribbon.label {
+  top: 0 !important;
+  left: -1rem !important;
+  padding-left: 10px !important;
+  padding-right: 2px !important;
+}
+
+.winner-entry {
+  background: #FFEFBA;
+  background: -webkit-linear-gradient(to right, #FFFFFF, #FFEFBA);
+  background: linear-gradient(to right, #FFFFFF, #FFEFBA);
+}
+
+.bg-blend-sl {
+  background-blend-mode: soft-light;
+  background-position: center !important;
+  background-size: cover !important;
+}
+
+.entry-img {
+  height: 87px !important;
+}
+
+.ui.checkbox label, .ui.checkbox+label, .ui.checkbox input:focus~label {
+  color: white !important;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.hover-red:hover {
+  color: red;
+}
+
+.hover-green:hover {
+  color: green;
+}
+
+.award-segment {
+  margin-top: 10px !important;
+  padding-bottom: 30px !important;
+}
+
+.entry-list {
+  margin-top: 10px !important;
+}
