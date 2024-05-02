@@ -32,4 +32,9 @@ public class VoteServiceImpl implements VoteService {
 
     return voteRepository.save(vote);
   }
+
+  @Override
+  public void deleteVote(Integer id) {
+    voteRepository.deleteById(id);
+  }
 }

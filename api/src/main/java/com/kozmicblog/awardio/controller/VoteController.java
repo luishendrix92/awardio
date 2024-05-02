@@ -3,10 +3,7 @@ package com.kozmicblog.awardio.controller;
 import com.kozmicblog.awardio.model.Vote;
 import com.kozmicblog.awardio.service.VoteService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/votes")
@@ -20,5 +17,10 @@ public class VoteController {
   @PostMapping
   public Vote create(@RequestBody VoteDto vote) {
     return voteService.castVote(vote.entryId(), vote.voterId(), vote.comment());
+  }
+
+  @DeleteMapping("/{id}")
+  public void delete(@PathVariable("id") Integer id) {
+    voteService.deleteVote(id);
   }
 }
