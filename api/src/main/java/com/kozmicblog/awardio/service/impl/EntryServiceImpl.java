@@ -24,4 +24,20 @@ public class EntryServiceImpl implements EntryService {
 
     return entryRepository.save(entry);
   }
+
+  @Override
+  public Entry updateEntry(Integer id, Entry entry) {
+    var toUpdate = entryRepository.findById(id).orElseThrow(EntityNotFoundException::new);
+
+    toUpdate.setTitle(entry.getTitle());
+    toUpdate.setDescription(entry.getDescription());
+    toUpdate.setImage(entry.getImage());
+
+    return entryRepository.save(toUpdate);
+  }
+
+  @Override
+  public void deleteEntry(Integer id) {
+    entryRepository.deleteById(id);
+  }
 }
