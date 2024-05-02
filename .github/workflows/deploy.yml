@@ -19,7 +19,7 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
       - name: Build project JAR with Maven
-        run: ./mvnw clean install
+        run: mvn clean install
       - name: Deploy to production
         uses: johnbeynon/render-deploy-action@v0.0.8
         with:
