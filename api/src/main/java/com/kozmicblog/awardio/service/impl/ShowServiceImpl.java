@@ -37,10 +37,10 @@ public class ShowServiceImpl implements ShowService {
       .createQuery(
         "select distinct s " +
           "from Show s " +
-          "join fetch s.awards a " +
-          "join fetch a.entries e " +
-          "join fetch e.votes v " +
-          "join fetch v.voter " +
+          "left join fetch s.awards a " +
+          "left join fetch a.entries e " +
+          "left join fetch e.votes v " +
+          "left join fetch v.voter " +
           "where s.id = :showId")
       .setParameter("showId", id)
       .getSingleResult();

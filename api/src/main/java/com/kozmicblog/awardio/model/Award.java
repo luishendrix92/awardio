@@ -28,6 +28,7 @@ public class Award {
     fetch = FetchType.LAZY
   )
   @JsonManagedReference
+  @OrderBy("id DESC")
   private Set<Entry> entries = new HashSet<>();
 
   @Column(name = "fk_winner")
